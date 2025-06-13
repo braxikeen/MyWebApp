@@ -1,8 +1,9 @@
 using System.Collections.Generic;
-using MyWebApp.Website.Models;
 using MyWebApp.Pages;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using MyWebApp.Services;
+using MyWebApp.Models;
 
 namespace MyWebApp.Pages
 {

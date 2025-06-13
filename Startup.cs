@@ -1,13 +1,13 @@
 
+using System.Text.Json;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MyWebApp.Website.Models;
+using MyWebApp.Services;
 
-
-namespace MyWebApp.WebSite
+namespace MyWebApp
 {
     public class Startup
     {

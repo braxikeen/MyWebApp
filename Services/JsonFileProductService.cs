@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using MyWebApp.Models;
 
-namespace MyWebApp.Website.Models
+namespace MyWebApp.Services
 {
     public class JsonFileProductService
     {

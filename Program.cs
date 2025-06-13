@@ -1,8 +1,9 @@
+
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
-using MyWebApp.WebSite;
+using MyWebApp;
 
-namespace ContosoCrafts.WebSite
+namespace MyWebApp
 {
     public class Program
     {
