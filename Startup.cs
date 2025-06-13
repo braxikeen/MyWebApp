@@ -17,13 +17,14 @@ namespace MyWebApp
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+        // This is where we register the features the app will use.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+            services.AddRazorPages();                               // adds support for Razor pages like Index.cshtml.cs
             services.AddServerSideBlazor();
-            services.AddHttpClient();
-            services.AddControllers();
-            services.AddTransient<JsonFileProductService>();
+            services.AddHttpClient();                               // allow the app to make Http calls
+            services.AddControllers();                              // registers support for controllers (like ProductsController.cs)
+            services.AddTransient<JsonFileProductService>();        // register my custom service class - transient means a new copy will be created every time it's requested
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -31,27 +32,25 @@ namespace MyWebApp
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage();        // show full errors
             }
             else
             {
-                app.UseExceptionHandler("/Error");
+                app.UseExceptionHandler("/Error");      // show generic error page
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+                app.UseHsts();                          // ensure HTTPS in browsers
             }
 
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseHttpsRedirection(); // force HTTPS instead of HTTP
+            app.UseStaticFiles();      // serve static files like CSS, JS, JSON
+            app.UseRouting();          // enables route matching for endpoints
+            app.UseAuthorization();    // checks user permissions (not used here)
 
-            app.UseRouting();
-
-            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
-                endpoints.MapControllers();
-                endpoints.MapBlazorHub();
+                endpoints.MapRazorPages();    // handle .cshtml page requests
+                endpoints.MapControllers();   // handle API controller routes
 
                 // endpoints.MapGet("/products", (context) => 
                 // {
