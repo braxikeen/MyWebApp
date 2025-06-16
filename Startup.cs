@@ -22,6 +22,7 @@ namespace MyWebApp
         {
             services.AddRazorPages();                               // adds support for Razor pages like Index.cshtml.cs
             services.AddServerSideBlazor();
+            services.AddServerSideBlazor();
             services.AddHttpClient();                               // allow the app to make Http calls
             services.AddControllers();                              // registers support for controllers (like ProductsController.cs)
             services.AddTransient<JsonFileProductService>();        // register my custom service class - transient means a new copy will be created every time it's requested
@@ -51,6 +52,7 @@ namespace MyWebApp
             {
                 endpoints.MapRazorPages();    // handle .cshtml page requests
                 endpoints.MapControllers();   // handle API controller routes
+                endpoints.MapBlazorHub();
 
                 // endpoints.MapGet("/products", (context) => 
                 // {

@@ -1,4 +1,5 @@
 ﻿@page
+@using MyWebApp.Components
 @model IndexModel
 
 @* This marks the file as a Razor Page that handles requests at the root URL ("/") *@
@@ -19,19 +20,6 @@
     </p>
 </div>
 
-<!-- This section displays the list of products as styled cards using Bootstrap classes -->
-<div class="card-columns">
-    @* Loop through each product in the list passed from the Index.cshtml.cs file *@
-    @foreach (var product in Model.Products!)
-    {
-        <div class="card">
-            @* Set the background image of the card using the product's image URL *@
-            <div class="card-img" style="background-image: url('@product.Image')"></div>
+@(await Html.RenderComponentAsync<ProductList>(RenderMode.ServerPrerendered))
 
-            @* This contains the product title (you could add more like description/ratings here) *@
-            <div class="card-body">
-                <h5 class="card-title">@product.Title</h5>
-            </div>
-        </div>
-    }
-</div>
+<script src="_framework/blazor.server.js"></script>

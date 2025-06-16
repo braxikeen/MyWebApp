@@ -146,8 +146,8 @@ ul {
 
 .card
 {
-    display:inline-block;
-    width: 400px;
+    display: inline-block;
+    width: 300px;
     vertical-align: bottom;
     margin: 10px
 }
